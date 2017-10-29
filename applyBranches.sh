@@ -1,8 +1,5 @@
 #!/bin/bash
 
-BRANCHES=""
-DIFF=""
-COMMENT=""
 
 while [[ $# -gt 0 ]]
 do
@@ -32,6 +29,7 @@ do
 done
 
 switch_branches () {
+
     if [ "$BRANCHES"  == "" ] || [ "$DIFF" == "" ] || [ "$COMMENT" == "" ]
     then
         echo "Error: Missing properties"
@@ -80,4 +78,5 @@ apply_changes() {
     fi
     return 0
 }
+
 switch_branches
