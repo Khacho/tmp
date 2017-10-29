@@ -81,7 +81,7 @@ apply_changes() {
         git commit -F $COMMENT
         if (( $? ==  0 ))
         then
-            # git push
+            git push
             echo "pushed"
             return 1
         fi
