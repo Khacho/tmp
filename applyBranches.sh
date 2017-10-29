@@ -1,5 +1,9 @@
 #!/bin/bash
 
+BRANCHES=""
+DIFF=""
+COMMENT=""
+
 while [[ $# -gt 0 ]]
 do
     key="$1" 
