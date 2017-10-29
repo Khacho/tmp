@@ -1,9 +1,18 @@
 #!/bin/bash
 
+
 while [[ $# -gt 0 ]]
 do
     key="$1" 
     case $key in
+        -h | --help )
+            echo "usage: bash ./applyChanges [arguments]"
+            echo "Arguments:"
+            echo -e '\n\t-d \t\tdiff'
+            echo -e '\n\t-c \t\tcomment'
+            echo -e '\n\t-b \t\tbranches'
+            exit 1
+            ;;
         -b |--branches )
             BRANCHES="$2"
             shift # past argument
@@ -28,6 +37,7 @@ do
 done
 
 switch_branches () {
+
     if [ "$BRANCHES"  == "" ] || [ "$DIFF" == "" ] || [ "$COMMENT" == "" ]
     then
         echo "Error: Missing properties"
@@ -76,4 +86,5 @@ apply_changes() {
     fi
     return 0
 }
+
 switch_branches
