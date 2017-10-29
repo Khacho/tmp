@@ -6,7 +6,7 @@ do
     key="$1" 
     case $key in
         -h | --help )
-            echo "usage: bash ./applyChanges [arguments]"
+            echo "usage: bash applyChanges [arguments]"
             echo "Arguments:"
             echo -e '\n\t-d \t\tdiff'
             echo -e '\n\t-c \t\tcomment'
@@ -36,6 +36,7 @@ do
     esac
 done
 
+# Switches all branches.
 switch_branches () {
 
     if [ "$BRANCHES"  == "" ] || [ "$DIFF" == "" ] || [ "$COMMENT" == "" ]
@@ -71,6 +72,7 @@ switch_branches () {
     done
 }
 
+# Applies changes to the branch and commits it.
 apply_changes() {
     git apply --cached $DIFF
     git apply $DIFF
