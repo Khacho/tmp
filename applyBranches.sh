@@ -82,8 +82,11 @@ apply_changes() {
         if (( $? ==  0 ))
         then
             git push
-            echo "pushed"
-            return 1
+            if (( $? == 0 ))
+            then
+                echo "pushed"
+                return 1
+            fi
         fi
     fi
     return 0
