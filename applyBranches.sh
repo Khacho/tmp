@@ -62,15 +62,15 @@ switch_branches () {
 }
 
 apply_changes() {
-    cd ../
     git apply --cached $DIFF
     git apply $DIFF
     if (( $? == 0))
     then
-        #git commit -F $COMMENT
+        git commit -F $COMMENT
         if (( $? ==  0 ))
         then
             # git push
+            echo "pushed"
             return 1
         fi
     fi
